@@ -1,0 +1,15 @@
+workflows:
+  vite-web-app:
+    name: Build Vite Web App
+    max_build_duration: 15
+    environment:
+      node: latest
+    scripts:
+      - name: Install dependencies
+        script: |
+          npm install
+      - name: Build Vite app
+        script: |
+          npm run build
+    artifacts:
+      - dist/**
