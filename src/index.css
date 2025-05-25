@@ -1,0 +1,145 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 10 10% 7%; /* Darker background like SafePal */
+    --foreground: 60 9.1% 97.8%;
+    
+    --card: 20 14.3% 10%; /* Slightly lighter card background */
+    --card-foreground: 60 9.1% 97.8%;
+    
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+    
+    --primary: 210 70% 55%; /* A blueish primary, can be adjusted */
+    --primary-foreground: 60 9.1% 97.8%;
+    
+    --secondary: 240 3.7% 15.9%; /* Darker secondary */
+    --secondary-foreground: 60 9.1% 97.8%;
+    
+    --muted: 240 3.7% 25%; /* Muted slightly lighter */
+    --muted-foreground: 240 5% 64.9%;
+    
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 60 9.1% 97.8%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    
+    --border: 240 3.7% 20%; /* Border slightly lighter */
+    --input: 240 3.7% 12%; /* Input background */
+    --ring: 210 70% 55%;
+    
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 10 10% 7%;
+    --foreground: 60 9.1% 97.8%;
+    
+    --card: 20 14.3% 10%;
+    --card-foreground: 60 9.1% 97.8%;
+    
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+    
+    --primary: 210 70% 55%;
+    --primary-foreground: 60 9.1% 97.8%;
+    
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 60 9.1% 97.8%;
+    
+    --muted: 240 3.7% 25%;
+    --muted-foreground: 240 5% 64.9%;
+    
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 60 9.1% 97.8%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    
+    --border: 240 3.7% 20%;
+    --input: 240 3.7% 12%;
+    --ring: 210 70% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-size: 14px; 
+  }
+
+  h1 { @apply text-[20px] font-bold; } 
+  h2 { @apply text-[18px] font-semibold; } 
+  h3 { @apply text-[16px] font-semibold; } 
+  p, span, div { @apply text-[14px]; } 
+  .text-body-lg { @apply text-[16px]; } 
+  .text-small { @apply text-[12px]; } 
+  .text-caption { @apply text-[14px]; } 
+
+  .page-container {
+    @apply px-4; 
+  }
+  .section-spacing {
+     @apply mb-6; 
+  }
+  .element-spacing {
+    @apply mb-4; 
+  }
+  .element-spacing-sm {
+    @apply mb-2; 
+  }
+}
+
+.safepal-gradient-button {
+  background: linear-gradient(90deg, #3b82f6 0%, #6366f1 100%); /* Adjusted gradient */
+}
+
+.bitcoin-gradient {
+  background: linear-gradient(135deg, #f7931a 0%, #ff9500 100%);
+}
+
+.glass-card {
+  background: rgba(30, 30, 40, 0.7);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.wallet-bg {
+   background-color: hsl(var(--background));
+}
+
+.bnb-icon-bg {
+  background-color: #f0b90b; /* BNB Yellow */
+}
+.eth-icon-bg {
+  background-color: #627eea; /* ETH Blue */
+}
+.tesla-icon-bg { /* Placeholder for Tesla or other tokens */
+  background-color: #cc0000; /* Tesla Red (example) */
+}
+.generic-token-bg {
+  background-color: hsl(var(--muted));
+}
+
+/* For Select component */
+.select-trigger {
+  @apply flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+}
+.select-content {
+  @apply relative z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2;
+}
+.select-item {
+  @apply relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50;
+}
+.select-item-indicator {
+  @apply absolute left-2 flex h-3.5 w-3.5 items-center justify-center;
+}
